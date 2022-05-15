@@ -2,16 +2,37 @@
 #include<vector>
 #include<string>
 #include<stack>
+#include<algorithm>
 #include<map>
 using namespace std;
+typedef long long int LL;
 
 class Solution{
 
     public:
     string solve(vector<string>& nums)
     {
-        stack<char> s;
+        string ans;
+        int len=INT_MIN;
+        LL index=0;
+        for (int i = 0; i < nums.size(); i++)
+        {
+            if(len>nums[i].length()){
+                len=nums[i].length();
+                index=i;
+            }
+        }
+        cout<<index;
+        for (LL i = 0; i < len; i++)
+        {
+            if(nums[index][0]==nums[i][0])
+            {
+
+            }
+        }
         
+        
+        return ans;
     }
 
 };
@@ -23,6 +44,7 @@ int main()
         {"flower"},
         {"flow"},
         {"flight"}};
-    string s=s.solve(v);
+    string S=s.solve(v);
+
     return 0;
 }

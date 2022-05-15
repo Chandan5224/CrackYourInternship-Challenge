@@ -9,36 +9,26 @@ class Solution{
     public:
     bool solve(string& s)
     {
-        int l=0,r=s.length()-1,count=0;
-        while(l<r)
-        {
-            if(s[l]!=s[r]){
-                l++;
-                if(count==1)
-                    return false;
-                else
-                    count=1;
-            }else{
-                l++;
-                r--;
+        for (int i = 0, j = s.size() - 1; i < j; i++, j--){
+            if (s[i] != s[j]) {
+                int i1 = i, j1 = j - 1, i2 = i + 1, j2 = j;
+                while (i1 < j1 && s[i1] == s[j1]) {i1++; j1--;};
+                while (i2 < j2 && s[i2] == s[j2]) {i2++; j2--;};
+                return i1 >= j1 || i2 >= j2;
             }
         }
-        // if(count==1&&s.length()==3)
-        //     return false;
-        // else if(count<=1)
-        //     return true;
-        // else
-        //     return false;
         return true;
-        
     }
 
 };
-
+/*
+"aba"
+"abca"
+"abc"*/
 int main()
 {
     Solution s;
-    string v="eedede";
+    string v="aba";
     if(s.solve(v))
         cout<<"YES"<<endl;
     else
