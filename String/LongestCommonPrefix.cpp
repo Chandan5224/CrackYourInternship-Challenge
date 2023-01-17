@@ -10,27 +10,25 @@ typedef long long int LL;
 class Solution{
 
     public:
-    string solve(vector<string>& nums)
+    string solve(vector<string>& str)
     {
-        string ans;
-        int len=INT_MIN;
-        LL index=0;
-        for (int i = 0; i < nums.size(); i++)
-        {
-            if(len>nums[i].length()){
-                len=nums[i].length();
-                index=i;
-            }
-        }
-        cout<<index;
-        for (LL i = 0; i < len; i++)
-        {
-            if(nums[index][0]==nums[i][0])
-            {
-
-            }
-        }
+      int n = str.size();
+        if(n==0) return "";
         
+        string ans  = "";
+        sort(begin(str), end(str));
+        string a = str[0];
+        string b = str[n-1];
+        cout<<str[1]<<endl;
+        for(int i=0; i<a.size(); i++){
+            if(a[i]==b[i]){
+                ans = ans + a[i];
+                
+            }
+            else{
+                break;
+            }
+        }
         
         return ans;
     }
@@ -45,6 +43,6 @@ int main()
         {"flow"},
         {"flight"}};
     string S=s.solve(v);
-
+    cout<<S;
     return 0;
 }
